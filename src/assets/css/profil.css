@@ -1,0 +1,190 @@
+header {
+    margin-bottom: 0;
+}
+
+small {
+    color: red;
+}
+
+#logo>a>img {
+    height: 100%;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#profilBtn {
+    width: 25rem;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+#userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+#userInfo>p {
+    margin-bottom: 0;
+}
+
+#modifyPart {
+    width: 75%;
+}
+
+.accountEdit {
+    display: flex;
+    min-height: 6rem;
+    margin-top: .5rem;
+    background-color: rgba(247, 247, 247, 0.3);
+}
+
+.accountEdit button {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.editEntry {
+    width: 100%;
+    padding-bottom: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry {
+    width: 70%;
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoTitle {
+    width: 10rem;
+    margin-left: 1.5rem;
+
+}
+
+input {
+    height: 1.5rem;
+    width: 17.5rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+/* MODAL */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modalContent {
+    width: 40%;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 1rem;
+    background-color: #eeeeee;
+    border: 1px solid #888;
+    /* Could be more or less, depending on screen size */
+}
+
+.modalContent>p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.modalContent div {
+    /* width: 75%; */
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.modalContent button {
+    width: 4rem;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1230px) {
+    #modifyPart {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .modalContent {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #modifyPart {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .infoTitlecontainer {
+        width: 12rem;
+    }
+
+    #profilBtn {
+        width: 100%;
+    }
+
+    .infoTitle {
+        margin-left: 0;
+        width: 110%;
+        font-size: 1.3rem;
+    }
+
+    input {
+        width: 10rem;
+    }
+}

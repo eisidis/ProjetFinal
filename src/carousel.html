@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .carousel {
+    height: 10rem;
+    width: 70rem;
+    background: purple;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .carousel-actions {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carousel .carousel-actions div {
+    height: 2rem;
+    width: 4rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2rem;
+    background: white;
+    cursor: pointer;
+}
+
+.carousel .carousel-container {
+    min-width: 27rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: .3s;
+}
+
+.carousel .carousel-item {
+    flex: 1;
+    height: 100%;
+    background: yellow;
+}
+
+.carousel .carousel-item:nth-child(2) {
+    background: red;
+}
+
+    </style>
+
+    <div id="domain" class="carousel" carousel-display="3">
+        <div class="carousel-actions">
+            <div class="carousel-btn">Back</div>
+            <div class="carousel-btn">Next</div>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
+            </div>
+            <div class="carousel-item" style="background: green;">
+            </div>
+            <div class="carousel-item">
+            </div>
+        </div>
+    </div>
+    <ion-icon name="chevron-back-circle-outline"></ion-icon>
+    
+    <script>
+
+const carouselHtml = document.getElementsByClassName('carousel');
+
+// pour chaque carousel
+for (let i = 0; i < carouselHtml.length; i++) {
+    // on recupere le carousel
+    const carousel = carouselHtml[i];
+    // on recupere le nombre d'element a afficher en simultané
+    const nbOfItem = carousel.getAttribute('carousel-display');
+
+    // on recupere la liste des items du carousel
+    const carouselItemsHtml = carousel.getElementsByClassName('carousel-item');
+    // on recupere le container des items du carousel
+    const carouselContainerHtml = carousel.getElementsByClassName('carousel-container');
+
+    // on calcul la taille du container en fonction du nombre d'items et du nombre d'item a afficher
+    const containerWidth = ((100 / nbOfItem) * carouselItemsHtml.length).toFixed(4);
+    carouselContainerHtml[0].style.width = containerWidth + '%';
+    // container d elements = affichage / nombre element afficher en meme temps * nombre element
+
+    // container d elements =   100    /        nbOfItem                        * carouselItemsHtml.length
+
+    // on recupere les bouton precedent, suivant
+    const carouselBtn = carousel.getElementsByClassName('carousel-btn');
+    for (let y = 0; y < carouselBtn.length; y++) {
+        // au click sur un bouton
+        carouselBtn[y].addEventListener('click', () => {
+            // on recupere la position actuel du container
+            const currentValue = Number(carouselContainerHtml[0].style.left.replace('%', ''));
+            // si on as cliquer sur le bouton suivant
+            if (y == 1) {
+                // taille du container - taille du carousel (* -1 pour mettre en negatif)
+                const maxLeft = ((containerWidth - 100).toFixed(4) - 0.0001) * -1;
+                if (currentValue > maxLeft) {
+                    carouselContainerHtml[0].style.left = currentValue - 100 / nbOfItem +
+                        '%';
+                }
+                // si on as cliquer sur le bouton precedant
+            } else {
+                // si la position actuelle et inferieure a 0 on peut le deplacer vers la droite
+                if (currentValue < 0) {
+                    carouselContainerHtml[0].style.left = currentValue + 100 / nbOfItem +
+                        '%';
+                }
+            }
+        });
+    }
+}
+
+
+    </script>
+</body>
+</html>

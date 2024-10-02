@@ -1,0 +1,37 @@
+services:
+  apache-php:
+    container_name: apache-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: eisidis-php-apache
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - 80:80
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql
+    volumes:
+      - ./database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pw
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - '8080:80'
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
