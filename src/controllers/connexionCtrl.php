@@ -60,13 +60,12 @@ if (!empty($_POST) && !empty($_POST['type'])) {
                 $error['email'] = 'email obligatoire';
             }
 
-            // Enregistre et connecte l'utilisateur s'il n'y a pas d'erreur
+            // Save and login the user if there is no error
             if (empty($error)) {
                 $user->register();
                 $userInfo = $user->getUserByUsername();
                 if ($userInfo) {
                     $_SESSION['id'] = $userInfo->id;
-                    // var_dump($userInfo);
                 }
                 if ($_SESSION['id']) {
                     header('Location: index.php');
@@ -89,8 +88,7 @@ if (!empty($_POST) && !empty($_POST['type'])) {
 
         if (empty($error)) {
             $user->username = $_POST['login_username'];
-            // Récupère les informations de l'utilisateur grâce au nom d'utilisateur
-            $userInfo = $user->getUserByUsername();
+            $userInfo = $user->getUserByUsername();  // Récupère les informations de l'utilisateur grâce au nom d'utilisateur
             if ($userInfo) {
                 if (password_verify($password, $userInfo->password)) {
                     $_SESSION['id'] = $userInfo->id;

@@ -52,7 +52,7 @@ class User extends Database
     public function register()
     {
         $query = "INSERT INTO `pamq_users`(`username`,`password`, `email`, `phone`) 
-                VALUES (:username, :password, :email, :phone);";
+                    VALUES (:username, :password, :email, :phone);";
 
         $queryExecute = $this->db->prepare($query);
         $queryExecute->bindValue(':username', $this->username, PDO::PARAM_STR);
@@ -62,6 +62,7 @@ class User extends Database
         return $queryExecute->execute();
     }
 
+    // Deletes the user by id
     public function delete()
     {
         $query = "DELETE FROM `pamq_users` WHERE `id` = :id;";
@@ -70,6 +71,7 @@ class User extends Database
         return $queryExecute->execute();
     }
 
+    // If an input is not filled then retrieve the information from the database
     public function modify()
     {
         $query = "SELECT * FROM `pamq_users` WHERE `id` = :id";

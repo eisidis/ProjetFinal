@@ -24,14 +24,14 @@ require './controllers/connexionCtrl.php';
                             <small style="color: red;"><?= $error['login_username'] ?></small>
                         <?php } ?>
                         <label for="">Nom d'utilisateur</label>
-                        <input type="text" name="login_username" id="">
+                        <input type="text" name="login_username">
                     </div>
                     <div class="groupForm">
                         <?php if (!empty($error) && !empty($error['login_password'])) { ?>
                             <small style="color: red;"><?= $error['login_password'] ?></small>
                         <?php } ?>
                         <label for="">Mot de passe</label>
-                        <input type="password" name="login_password" id="">
+                        <input type="password" name="login_password">
                     </div>
                 </div>
                 <button name="type" value="login" type="submit">Se connecter</button>
@@ -50,21 +50,21 @@ require './controllers/connexionCtrl.php';
                             <small><?= $error['username'] ?></small>
                         <?php } ?>
                         <label>Nom d'utilisateur</label>
-                        <input type="text" name="username" id="" required>
+                        <input type="text" name="username" required>
                     </div>
                     <div class="groupForm">
                         <?php if (!empty($error) && !empty($error['password'])) { ?>
                             <small style="color: red;"><?= $error['password'] ?></small>
                         <?php } ?>
                         <label for="">Mot de passe</label>
-                        <input type="password" name="password" id="" required>
+                        <input type="password" name="password" required>
                     </div>
                     <div class="groupForm">
                         <?php if (!empty($error) && !empty($error['confirmPassword'])) { ?>
                             <small style="color: red;"><?= $error['confirmPassword'] ?></small>
                         <?php } ?>
                         <label for="">Confirmé mot de passe</label>
-                        <input type="password" name="confirmPassword" id="" required>
+                        <input type="password" name="confirmPassword" required>
                     </div>
                     <div class="groupForm">
                         <?php if (!empty($error) && !empty($error['email'])) { ?>

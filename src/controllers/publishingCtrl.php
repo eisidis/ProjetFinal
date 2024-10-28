@@ -2,30 +2,10 @@
 try {
     session_start();
 } catch (\Throwable $th) {
-    $error['globalError'] = 'Arrete de spam stp';
+    $error['globalError'] = 'Veuillez ne pas surchager';
 }
 
 if (empty($_SESSION['id'])) header('Location: index.php');
-
-var_dump($_FILES);
-// var_dump(sizeof($_POST));
-var_dump($_POST);
-
-/**
-require_once 'models/Announcement.php';
-$announcement = new Announcement();
-
-$announcement->title = 'titre';
-$announcement->image = 'nomImg';
-$announcement->id_pamq_categories = 1;
-$announcement->description = 'description';
-$announcement->id_pamq_users = 180;
-
-$announcement->registerAnnouncement();
-
-var_dump($announcement);
-
- **/
 
 if (!empty($_POST)) {
     if (sizeof($_POST) > 1) {
@@ -50,7 +30,6 @@ if (!empty($_POST)) {
         } else {
             $error['file'] = 'Image obligatoire';
         }
-        var_dump($announcement->image);
 
         if (!empty($_POST['title'])) {
             if (strlen($_POST['title']) >= 3 && strlen($_POST['title']) <= 75) {

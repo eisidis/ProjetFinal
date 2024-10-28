@@ -33,7 +33,7 @@ const initCarousel = () => {
         carouselContainerHtml[0].style.left = '0%';
         // container d elements = affichage / nombre element afficher en meme temps * nombre element
 
-        // container d elements =   100    /        nbOfItem                        * carouselItemsHtml.length
+        // container d elements = 100 / nbOfItem * carouselItemsHtml.length
 
         // on recupere les bouton precedent, suivant
         const carouselBtn = carousel.getElementsByClassName('carousel-btn');
@@ -50,12 +50,11 @@ const initCarousel = () => {
                         carouselContainerHtml[0].style.left = currentValue - 100 / nbOfItem +
                             '%';
                     }
-                    // si on as cliquer sur le bouton precedant
+                    // si on a cliquer sur le bouton precedant
                 } else {
                     // si la position actuelle et inferieure a 0 on peut le deplacer vers la droite
                     if (currentValue < 0) {
-                        carouselContainerHtml[0].style.left = currentValue + 100 / nbOfItem +
-                            '%';
+                        carouselContainerHtml[0].style.left = currentValue + 100 / nbOfItem + '%';
                     }
                 }
             };
@@ -93,6 +92,6 @@ window.addEventListener('resize', () => {
 })
 
 
-itemImg[0].addEventListener('click', () => {
-    itemImg[0].classList.toggle('selected')
-})
+// itemImg[0].addEventListener('click', () => {
+//     itemImg[0].classList.toggle('selected')
+// })

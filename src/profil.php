@@ -54,8 +54,6 @@
         <p>Nom d'utilisateur: <?= $userInfo->username ?></p>
         <p>Email: <?= $userInfo->email ?></p>
         <p>Téléphone: <?= (empty($userInfo->phone) ? "telephone non renseigner" : $userInfo->phone) ?></p>
-        <?php
-        ?>
     </div>
 
     <div id="modifyPart">
